@@ -1,5 +1,9 @@
 CognitiveWalkthroughHelper::Application.routes.draw do
   resources :walkthroughs do
+    member do
+      get 'summary'
+    end
+  
     resources :tasks, :only => [:index, :create, :new]
   end
   

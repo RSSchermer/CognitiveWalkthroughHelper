@@ -1,0 +1,35 @@
+<h1>Walkthrough summary</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Action</th>
+      <th>Question 1</th>
+      <th>Question 2</th>
+      <th>Question 3</th>
+      <th>Question 4</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @walkthrough.tasks.each do |task| %>
+      <% task.user_actions.each_with_index do |user_action, index| %>
+        <tr>
+          <td>
+            <% if index == 0 %>
+              <%= task.description %>
+            <% end %>
+          </td>
+          <td><%= user_action.description %></td>
+          <td><%= user_action.question_one_is_true %></td>
+          <td><%= user_action.question_two_is_true %></td>
+          <td><%= user_action.question_three_is_true %></td>
+          <td><%= user_action.question_four_is_true %></td>
+        <tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back", walkthroughs_path %>

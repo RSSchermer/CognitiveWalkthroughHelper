@@ -1,7 +1,7 @@
 class WalkthroughsController < ApplicationController
   before_filter :authenticate_user!
   
-  before_action :set_walkthrough, only: [:show, :edit, :update, :destroy]
+  before_action :set_walkthrough, only: [:show, :edit, :update, :destroy, :summary]
 
   # GET /walkthroughs
   def index
@@ -45,6 +45,9 @@ class WalkthroughsController < ApplicationController
   def destroy
     @walkthrough.destroy
     redirect_to walkthroughs_url, notice: 'Walkthrough was successfully destroyed.'
+  end
+  
+  def summary
   end
 
   private
