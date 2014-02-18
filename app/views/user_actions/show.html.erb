@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @user_action.task_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user_action.description %>
+</p>
+
+<p>
+  <strong>System response description:</strong>
+  <%= @user_action.system_response_description %>
+</p>
+
+<p>
+  <strong>Question one is true:</strong>
+  <%= @user_action.question_one_is_true %>
+</p>
+
+<p>
+  <strong>Question one explanation:</strong>
+  <%= @user_action.question_one_explanation %>
+</p>
+
+<p>
+  <strong>Question two is true:</strong>
+  <%= @user_action.question_two_is_true %>
+</p>
+
+<p>
+  <strong>Question two explanation:</strong>
+  <%= @user_action.question_two_explanation %>
+</p>
+
+<p>
+  <strong>Question three is true:</strong>
+  <%= @user_action.question_three_is_true %>
+</p>
+
+<p>
+  <strong>Question three explanation:</strong>
+  <%= @user_action.question_three_explanation %>
+</p>
+
+<p>
+  <strong>Question four is true:</strong>
+  <%= @user_action.question_four_is_true %>
+</p>
+
+<p>
+  <strong>Question four explanation:</strong>
+  <%= @user_action.question_four_explanation %>
+</p>
+
+<p>
+  <strong>Additional explanation:</strong>
+  <%= @user_action.additional_explanation %>
+</p>
+
+<%= link_to 'Edit', edit_user_action_path(@user_action) %> |
+<%= link_to 'Back', user_actions_path %>
