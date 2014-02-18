@@ -1,0 +1,27 @@
+<h1>Listing walkthroughs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @walkthroughs.each do |walkthrough| %>
+      <tr>
+        <td><%= walkthrough.description %></td>
+        <td><%= link_to 'Show', walkthrough %></td>
+        <td><%= link_to 'Edit', edit_walkthrough_path(walkthrough) %></td>
+        <td><%= link_to 'Destroy', walkthrough, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Walkthrough', new_walkthrough_path %>
