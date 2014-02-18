@@ -4,10 +4,10 @@ CognitiveWalkthroughHelper::Application.routes.draw do
   end
   
   resources :tasks, :except => [:index, :create, :new] do
-    resources :actions, :only => [:index, :create, :new]
+    resources :user_actions, :only => [:index, :create, :new]
   end
   
-  resources :actions, :except => [:index, :create, :new]
+  resources :user_actions, :except => [:index, :create, :new]
   
   devise_for :users
   

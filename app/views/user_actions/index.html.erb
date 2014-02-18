@@ -1,20 +1,13 @@
-<h1>Listing user_actions</h1>
+<h1>Listing Actions</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Task</th>
       <th>Description</th>
-      <th>System response description</th>
-      <th>Question one is true</th>
-      <th>Question one explanation</th>
-      <th>Question two is true</th>
-      <th>Question two explanation</th>
-      <th>Question three is true</th>
-      <th>Question three explanation</th>
-      <th>Question four is true</th>
-      <th>Question four explanation</th>
-      <th>Additional explanation</th>
+      <th>Question 1</th>
+      <th>Question 2</th>
+      <th>Question 3</th>
+      <th>Question 4</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,18 +17,11 @@
   <tbody>
     <% @user_actions.each do |user_action| %>
       <tr>
-        <td><%= user_action.task_id %></td>
         <td><%= user_action.description %></td>
-        <td><%= user_action.system_response_description %></td>
         <td><%= user_action.question_one_is_true %></td>
-        <td><%= user_action.question_one_explanation %></td>
         <td><%= user_action.question_two_is_true %></td>
-        <td><%= user_action.question_two_explanation %></td>
         <td><%= user_action.question_three_is_true %></td>
-        <td><%= user_action.question_three_explanation %></td>
         <td><%= user_action.question_four_is_true %></td>
-        <td><%= user_action.question_four_explanation %></td>
-        <td><%= user_action.additional_explanation %></td>
         <td><%= link_to 'Show', user_action %></td>
         <td><%= link_to 'Edit', edit_user_action_path(user_action) %></td>
         <td><%= link_to 'Destroy', user_action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -44,6 +30,5 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User action', new_user_action_path %>
+<%= link_to 'New Action', new_task_user_action_path(@task) %>
+<%= link_to 'Back', walkthrough_tasks_path(@task.walkthrough) %>

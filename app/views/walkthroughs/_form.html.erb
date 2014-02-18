@@ -1,4 +1,4 @@
-<%= form_for(@walkthrough) do |f| %>
+<%= bootstrap_form_for(@walkthrough) do |f| %>
   <% if @walkthrough.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@walkthrough.errors.count, "error") %> prohibited this walkthrough from being saved:</h2>
@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.form_group do %>
+    <%= f.text_area :description %>
+  <% end %>
+  
+  <%= f.form_group do %>
+    <%= f.submit 'Save' %>
+  <% end %>
 <% end %>

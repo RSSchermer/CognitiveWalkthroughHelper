@@ -1,9 +1,12 @@
 class UserActionsController < ApplicationController
+  before_filter :authenticate_user!
+  
   before_action :set_user_action, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:index, :new, :create]
 
   # GET /user_actions
   def index
-    @user_actions = UserAction.all
+    @user_actions = @task.user_actions
   end
 
   # GET /user_actions/1
@@ -21,7 +24,7 @@ class UserActionsController < ApplicationController
 
   # POST /user_actions
   def create
-    @user_action = UserAction.new(user_action_params)
+    @user_action = UserAction.new(user_action_params.merge({:task_id => @task.id}))
 
     if @user_action.save
       redirect_to @user_action, notice: 'User action was successfully created.'
@@ -42,7 +45,7 @@ class UserActionsController < ApplicationController
   # DELETE /user_actions/1
   def destroy
     @user_action.destroy
-    redirect_to user_actions_url, notice: 'User action was successfully destroyed.'
+    redirect_to task_user_actions_url(@user_action.task), notice: 'User action was successfully destroyed.'
   end
 
   private
@@ -50,9 +53,16 @@ class UserActionsController < ApplicationController
     def set_user_action
       @user_action = UserAction.find(params[:id])
     end
+    
+    def set_task
+      @task = Task.find(params[:task_id])
+    end
 
     # Only allow a trusted parameter "white list" through.
     def user_action_params
-      params.require(:user_action).permit(:task_id, :description, :system_response_description, :question_one_is_true, :question_one_explanation, :question_two_is_true, :question_two_explanation, :question_three_is_true, :question_three_explanation, :question_four_is_true, :question_four_explanation, :additional_explanation)
+      params.require(:user_action).permit(:task_id, :description, :system_response_description, :question_one_is_true,
+                                          :question_one_explanation, :question_two_is_true, :question_two_explanation,
+                                          :question_three_is_true, :question_three_explanation, :question_four_is_true,
+                                          :question_four_explanation, :additional_explanation)
     end
 end

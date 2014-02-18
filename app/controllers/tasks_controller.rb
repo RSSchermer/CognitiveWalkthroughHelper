@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_user!
+  
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_walkthrough, only: [:index, :new, :create]
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = @walkthrough.tasks
   end
 
   # GET /tasks/1
@@ -21,7 +24,7 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(task_params.merge({:walkthrough_id => @walkthrough.id}))
 
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
@@ -42,7 +45,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    redirect_to walkthrough_tasks_url(@task.walkthrough), notice: 'Task was successfully destroyed.'
   end
 
   private
@@ -50,9 +53,13 @@ class TasksController < ApplicationController
     def set_task
       @task = Task.find(params[:id])
     end
+    
+    def set_walkthrough
+      @walkthrough = Walkthrough.find(params[:walkthrough_id])
+    end
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:description, :walkthrough_id)
+      params.require(:task).permit(:description)
     end
 end

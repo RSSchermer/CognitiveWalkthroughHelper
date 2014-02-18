@@ -1,4 +1,4 @@
-<%= form_for(@user_action) do |f| %>
+<%= bootstrap_form_for [@task, @user_action] do |f| %>
   <% if @user_action.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_action.errors.count, "error") %> prohibited this user_action from being saved:</h2>
@@ -11,55 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :task_id %><br>
-    <%= f.number_field :task_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :system_response_description %><br>
-    <%= f.text_field :system_response_description %>
-  </div>
-  <div class="field">
-    <%= f.label :question_one_is_true %><br>
+  <%= f.form_group do %>
+    <%= f.text_area :description %>
+  <% end %>
+  
+  <%= f.form_group do %>
+    <%= f.text_area :system_response_description %>
+  <% end %>
+  
+  <%= f.form_group do %>
     <%= f.check_box :question_one_is_true %>
-  </div>
-  <div class="field">
-    <%= f.label :question_one_explanation %><br>
-    <%= f.text_field :question_one_explanation %>
-  </div>
-  <div class="field">
-    <%= f.label :question_two_is_true %><br>
+    <%= f.text_area :question_one_explanation %>
+  <% end %>
+  
+  <%= f.form_group do %>
     <%= f.check_box :question_two_is_true %>
-  </div>
-  <div class="field">
-    <%= f.label :question_two_explanation %><br>
-    <%= f.text_field :question_two_explanation %>
-  </div>
-  <div class="field">
-    <%= f.label :question_three_is_true %><br>
+    <%= f.text_area :question_two_explanation %>
+  <% end %>
+  
+  <%= f.form_group do %>
     <%= f.check_box :question_three_is_true %>
-  </div>
-  <div class="field">
-    <%= f.label :question_three_explanation %><br>
-    <%= f.text_field :question_three_explanation %>
-  </div>
-  <div class="field">
-    <%= f.label :question_four_is_true %><br>
+    <%= f.text_area :question_three_explanation %>
+  <% end %>
+  
+  <%= f.form_group do %>
     <%= f.check_box :question_four_is_true %>
-  </div>
-  <div class="field">
-    <%= f.label :question_four_explanation %><br>
-    <%= f.text_field :question_four_explanation %>
-  </div>
-  <div class="field">
-    <%= f.label :additional_explanation %><br>
+    <%= f.text_area :question_four_explanation %>
+  <% end %>
+  
+  <%= f.form_group do %>
     <%= f.text_field :additional_explanation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% end %>
+  
+  <%= f.form_group do %>
+    <%= f.submit "Save" %>
+  <% end %>
+  
 <% end %>

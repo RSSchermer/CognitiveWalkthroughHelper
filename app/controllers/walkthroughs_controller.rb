@@ -1,4 +1,6 @@
 class WalkthroughsController < ApplicationController
+  before_filter :authenticate_user!
+  
   before_action :set_walkthrough, only: [:show, :edit, :update, :destroy]
 
   # GET /walkthroughs

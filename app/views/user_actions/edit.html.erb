@@ -1,6 +1,6 @@
-<h1>Editing user_action</h1>
+<h1>Editing Action</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @user_action %> |
-<%= link_to 'Back', user_actions_path %>
+<%= link_to 'Back', task_user_actions_path(@user_action.task) %>

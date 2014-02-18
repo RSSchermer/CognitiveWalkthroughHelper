@@ -1,10 +1,10 @@
 <h1>Listing tasks</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Description</th>
-      <th>Walkthrough</th>
+      <th>Actions</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +15,7 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.description %></td>
-        <td><%= task.walkthrough_id %></td>
+        <td><%= link_to task.user_actions.count, task_user_actions_path(task) %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,6 +24,5 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_walkthrough_task_path(@walkthrough) %>
+<%= link_to 'Back', walkthroughs_path %>
