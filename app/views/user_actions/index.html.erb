@@ -18,10 +18,10 @@
     <% @user_actions.each do |user_action| %>
       <tr>
         <td><%= user_action.description %></td>
-        <td><%= user_action.question_one_is_true %></td>
-        <td><%= user_action.question_two_is_true %></td>
-        <td><%= user_action.question_three_is_true %></td>
-        <td><%= user_action.question_four_is_true %></td>
+        <td><%= humanize_boolean(user_action.question_one_is_true) %></td>
+        <td><%= humanize_boolean(user_action.question_two_is_true) %></td>
+        <td><%= humanize_boolean(user_action.question_three_is_true) %></td>
+        <td><%= humanize_boolean(user_action.question_four_is_true) %></td>
         <td><%= link_to 'Show', user_action %></td>
         <td><%= link_to 'Edit', edit_user_action_path(user_action) %></td>
         <td><%= link_to 'Destroy', user_action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,5 +30,5 @@
   </tbody>
 </table>
 
-<%= link_to 'New Action', new_task_user_action_path(@task) %>
+<%= link_to 'New Action', new_task_user_action_path(@task) %> |
 <%= link_to 'Back', walkthrough_tasks_path(@task.walkthrough) %>

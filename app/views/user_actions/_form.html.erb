@@ -20,27 +20,50 @@
   <% end %>
   
   <%= f.form_group do %>
-    <%= f.check_box :question_one_is_true %>
-    <%= f.text_area :question_one_explanation %>
+    <strong>Is the effect of the action the same as the user's goal at that point?</strong> <br />
+    <em>Each user action will have a specific effect within the system. Is this effect the same
+      as what the user is trying to achieve at this point? For example, if the effect of the action is tosave a
+      document, is 'saving a document' what the user wants to do?</em>
+    <%= f.radio_button :question_one_is_true, true, label: 'Yes' %>
+    <%= f.radio_button :question_one_is_true, false, label: 'No' %>
+    <%= f.text_area :question_one_explanation, label: 'Success/failure story' %>
   <% end %>
   
   <%= f.form_group do %>
-    <%= f.check_box :question_two_is_true %>
-    <%= f.text_area :question_two_explanation %>
+    <strong>Will the users see that the action is available?</strong> <br />
+    <em>Will users see the button or menu item, for example, that is used to produce the action? This is not asking
+      whether they will recognize that the button is the one they want. This is merely asking whether it is visible to
+      them at the time when they will need to use it. Instances where the answer to this question might be 'no' are,
+      for example, where a VCR remote control has a covered panel of buttons or where a menu item is hidden away in a
+      submenu.</em>
+    <%= f.radio_button :question_two_is_true, true, label: 'Yes' %>
+    <%= f.radio_button :question_two_is_true, false, label: 'No' %>
+    <%= f.text_area :question_two_explanation, label: 'Success/failure story' %>
   <% end %>
   
   <%= f.form_group do %>
-    <%= f.check_box :question_three_is_true %>
-    <%= f.text_area :question_three_explanation %>
+    <strong>Once users have found the correct action, will they know it is the one they need?</strong> <br />
+    <em>This complements the previous question. It is one thingfor a button or menu item to be visible, but will the
+      user recognize that it is the one he is looking for to complete his task? Where the previous questions was
+      about the visibility of the action, this one is about whether its meaning and effect are clear.</em>
+    <%= f.radio_button :question_three_is_true, true, label: 'Yes' %>
+    <%= f.radio_button :question_three_is_true, false, label: 'No' %>
+    <%= f.text_area :question_three_explanation, label: 'Success/failure story' %>
   <% end %>
   
   <%= f.form_group do %>
-    <%= f.check_box :question_four_is_true %>
-    <%= f.text_area :question_four_explanation %>
+    <strong>After the action is taken, will users understand the feedback they get?</strong> <br />
+    <em>If you now assume that the user did manage to achieve the correct action, will he know that he has done so?
+      Will the feedback given be sufficient confirmation of what has actually happened? This is the completion of the
+      execution-evaluation interaction cycle. In order to determine if they have accomplished their goal, users need
+      appropriate feedback.</em>
+    <%= f.radio_button :question_four_is_true, true, label: 'Yes' %>
+    <%= f.radio_button :question_four_is_true, false, label: 'No' %>
+    <%= f.text_area :question_four_explanation, label: 'Success/failure story' %>
   <% end %>
   
   <%= f.form_group do %>
-    <%= f.text_field :additional_explanation %>
+    <%= f.text_area :additional_explanation %>
   <% end %>
   
   <%= f.form_group do %>

@@ -22,10 +22,10 @@
             <% end %>
           </td>
           <td><%= user_action.description %></td>
-          <td><%= user_action.question_one_is_true %></td>
-          <td><%= user_action.question_two_is_true %></td>
-          <td><%= user_action.question_three_is_true %></td>
-          <td><%= user_action.question_four_is_true %></td>
+          <td><%= humanize_boolean(user_action.question_one_is_true) %></td>
+          <td><%= humanize_boolean(user_action.question_two_is_true) %></td>
+          <td><%= humanize_boolean(user_action.question_three_is_true) %></td>
+          <td><%= humanize_boolean(user_action.question_four_is_true) %></td>
         <tr>
       <% end %>
     <% end %>

@@ -34,15 +34,15 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
-  width: 100%;
+  background-color: #eee;
+  max-width: 968px;
   margin-top: 51px; // accommodate the navbar
-  }
+}
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
 
 // Styles for Devise views
 // using Bootstrap

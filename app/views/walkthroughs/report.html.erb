@@ -15,22 +15,22 @@
         </tr>
         <tr>
           <td><em>Is the effect of the action the same as the user's goal at that point?</em></td>
-          <td><%= user_action.question_one_is_true %></td>
+          <td><%= humanize_boolean(user_action.question_one_is_true) %></td>
           <td><%= user_action.question_one_explanation %></td>
         </tr>
         <tr>
           <td><em>Will the users see that the action is available?</em></td>
-          <td><%= user_action.question_two_is_true %></td>
+          <td><%= humanize_boolean(user_action.question_two_is_true) %></td>
           <td><%= user_action.question_two_explanation %></td>
         </tr>
         <tr>
           <td><em>Once users have found the correct action, will they know it is the one they need?</em></td>
-          <td><%= user_action.question_three_is_true %></td>
+          <td><%= humanize_boolean(user_action.question_three_is_true) %></td>
           <td><%= user_action.question_three_explanation %></td>
         </tr>
         <tr>
           <td><em>After the action is taken, will users understand the feedback they get?</em></td>
-          <td><%= user_action.question_four_is_true %></td>
+          <td><%= humanize_boolean(user_action.question_four_is_true) %></td>
           <td><%= user_action.question_four_explanation %></td>
         </tr>
         <tr>
