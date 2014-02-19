@@ -1,0 +1,47 @@
+<h1>Walkthrough summary</h1>
+
+<table class="table">
+  <tbody>
+    <% @walkthrough.tasks.each do |task| %>
+      <tr>
+        <td colspan="100"><strong>Task: <%= task.description %></strong></td>
+      </tr>
+      <% task.user_actions.each do |user_action| %>
+        <tr>
+          <td colspan="100"><em>Action:</em> <%= user_action.description %></td>
+        </tr>
+        <tr>
+          <td colspan="100"><em>System response:</em> <%= user_action.system_response_description %></td>
+        </tr>
+        <tr>
+          <td><em>Is the effect of the action the same as the user's goal at that point?</em></td>
+          <td><%= user_action.question_one_is_true %></td>
+          <td><%= user_action.question_one_explanation %></td>
+        </tr>
+        <tr>
+          <td><em>Will the users see that the action is available?</em></td>
+          <td><%= user_action.question_two_is_true %></td>
+          <td><%= user_action.question_two_explanation %></td>
+        </tr>
+        <tr>
+          <td><em>Once users have found the correct action, will they know it is the one they need?</em></td>
+          <td><%= user_action.question_three_is_true %></td>
+          <td><%= user_action.question_three_explanation %></td>
+        </tr>
+        <tr>
+          <td><em>After the action is taken, will users understand the feedback they get?</em></td>
+          <td><%= user_action.question_four_is_true %></td>
+          <td><%= user_action.question_four_explanation %></td>
+        </tr>
+        <tr>
+          <td colspan="100"><em>Additional/general comments:</em> <%= user_action.additional_explanation %></td>
+        </tr>
+        <tr>
+          <td colspan="100"></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back", walkthroughs_path %>

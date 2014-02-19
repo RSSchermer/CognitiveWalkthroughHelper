@@ -1,7 +1,7 @@
 class WalkthroughsController < ApplicationController
   before_filter :authenticate_user!
   
-  before_action :set_walkthrough, only: [:show, :edit, :update, :destroy, :summary]
+  before_action :set_walkthrough, only: [:show, :edit, :update, :destroy, :summary, :report]
 
   # GET /walkthroughs
   def index
@@ -49,7 +49,10 @@ class WalkthroughsController < ApplicationController
   
   def summary
   end
-
+  
+  def report
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_walkthrough

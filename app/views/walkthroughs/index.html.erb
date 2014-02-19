@@ -8,6 +8,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -17,6 +18,7 @@
         <td><%= walkthrough.description %></td>
         <td><%= link_to walkthrough.tasks.count, walkthrough_tasks_path(walkthrough) %></td>
         <td><%= link_to 'Summary', summary_walkthrough_path(walkthrough) %>
+        <td><%= link_to 'Report', report_walkthrough_path(walkthrough) %>
         <td><%= link_to 'Edit', edit_walkthrough_path(walkthrough) %></td>
         <td><%= link_to 'Destroy', walkthrough, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
