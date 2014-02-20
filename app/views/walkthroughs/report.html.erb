@@ -4,14 +4,14 @@
   <tbody>
     <% @walkthrough.tasks.each do |task| %>
       <tr>
-        <td colspan="100"><strong>Task: <%= task.description %></strong></td>
+        <td colspan="3"><strong>Task: <%= task.description %></strong></td>
       </tr>
       <% task.user_actions.each do |user_action| %>
         <tr>
-          <td colspan="100"><em>Action:</em> <%= user_action.description %></td>
+          <td colspan="3"><em>Action:</em> <%= user_action.description %></td>
         </tr>
         <tr>
-          <td colspan="100"><em>System response:</em> <%= user_action.system_response_description %></td>
+          <td colspan="3"><em>System response:</em> <%= user_action.system_response_description %></td>
         </tr>
         <tr>
           <td><em>Is the effect of the action the same as the user's goal at that point?</em></td>
@@ -34,10 +34,10 @@
           <td><%= user_action.question_four_explanation %></td>
         </tr>
         <tr>
-          <td colspan="100"><em>Additional/general comments:</em> <%= user_action.additional_explanation %></td>
+          <td colspan="3"><em>Additional/general comments:</em> <%= user_action.additional_explanation %></td>
         </tr>
         <tr>
-          <td colspan="100"></td>
+          <td colspan="3"></td>
         </tr>
       <% end %>
     <% end %>
